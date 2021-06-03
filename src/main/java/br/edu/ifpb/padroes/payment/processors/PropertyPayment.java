@@ -8,6 +8,10 @@ public class PropertyPayment extends PaymentProcessor {
     public void process(Property property) {
         double propertyDeed = property.getPrice();
         System.out.println(String.format("Pay %f for the property", propertyDeed));
+
+        if (nextProcessor != null) {
+            nextProcessor.process(property);
+        }
     }
 }
 
